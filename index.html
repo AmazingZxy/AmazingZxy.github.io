@@ -717,4 +717,145 @@
 
   <!-- 点击爆炸 -->
   <!--
-  --></body></html>
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  -->
+
+</body>
+</html>
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+<!--鼠标移入又好，又坏了-->
+<script>
+       window.onload = function () {
+           var OriginTitile = document.title;
+           var titleTime;
+           document.addEventListener('visibilitychange', function () {
+               if (document.hidden) {
+                   $('[rel="shortcut icon"]').attr('href', "/Content/Images/fail.ico");
+                   document.title = '(●—●)喔哟，崩溃啦！';
+                   clearTimeout(titleTime);
+               }
+               else {
+                   $('[rel="shortcut icon"]').attr('href', "/Content/Images/icon.png");
+                   document.title = '(/≧▽≦/)咦！又好了！' + OriginTitile;
+                   titleTime = setTimeout(function () {
+                       document.title = OriginTitile;
+                   }, 2000);
+               }
+           });
+       }
+</script>
+
+<!--鼠标图像-->
+<style>
+       abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+           margin: 0;
+           padding: 0;
+           cursor: url('/images/mouse.png'),auto;
+       }
+</style>
+
+<!--彩带特效-->
+<style>
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+</style>
+<script>
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault()
+    })
+    var c = document.getElementsByTagName('canvas')[0],
+        x = c.getContext('2d'),
+        pr = window.devicePixelRatio || 1,
+        w = window.innerWidth,
+        h = window.innerHeight,
+        f = 90,
+        q,
+        m = Math,
+        r = 0,
+        u = m.PI * 2,
+        v = m.cos,
+        z = m.random
+    c.width = w * pr
+    c.height = h * pr
+    x.scale(pr, pr)
+    x.globalAlpha = 0.6
+ 
+    function i() {
+        x.clearRect(0, 0, w, h)
+        q = [{ x: 0, y: h * .7 + f }, { x: 0, y: h * .7 - f }]
+        while (q[1].x < w + f) d(q[0], q[1])
+    }
+    function d(i, j) {
+        x.beginPath()
+        x.moveTo(i.x, i.y)
+        x.lineTo(j.x, j.y)
+        var k = j.x + (z() * 2 - 0.25) * f,
+            n = y(j.y)
+        x.lineTo(k, n)
+        x.closePath()
+        r -= u / -50
+        x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+        x.fill()
+        q[0] = q[1]
+        q[1] = { x: k, y: n }
+    }
+    function y(p) {
+        var t = p + (z() * 2 - 1.1) * f
+        return (t > h || t < 0) ? y(p) : t
+    }
+    document.onclick = i
+    document.ontouchstart = i
+    i()
+</script>
+
+
+<!--文字特效-->
+<script type="text/javascript"> 
+/* 鼠标特效 */
+var a_idx = 0; 
+jQuery(document).ready(function($) { 
+    $("body").click(function(e) { 
+        var a = new Array("秋风清", "秋月明", "春波碧草", "晓寒深处", "鸳鸯织就欲双飞", "可怜未老先白头", "落叶聚还散" ,"相思相见知何日", "相对浴红衣", "命定的局限尽可永在", "不屈的挑战却不可须臾或缺", "窥其园，知其人。"); 
+        var $i = $("<span/>").text(a[a_idx]); 
+        a_idx = (a_idx + 1) % a.length; 
+        var x = e.pageX, 
+        y = e.pageY; 
+        $i.css({ 
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999, 
+            "top": y - 20, 
+            "left": x, 
+            "position": "absolute", 
+            "font-weight": "bold", 
+            "color": "#ff6651" 
+        }); 
+        $("body").append($i); 
+        $i.animate({ 
+            "top": y - 180, 
+            "opacity": 0 
+        }, 
+        1500, 
+        function() { 
+            $i.remove(); 
+        }); 
+    }); 
+}); 
+</script>
