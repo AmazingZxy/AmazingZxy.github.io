@@ -135,6 +135,8 @@
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
+  <canvas width="2560" height="7292"></canvas>
+
   
   
     
@@ -714,50 +716,5 @@
 
 
   <!-- 点击爆炸 -->
-  
-   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-   <script type="text/javascript" src="/js/src/fireworks.js"></script>
-
-</body>
-</html>
-
-
-<!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/love.js"></script>
-
-<link rel="stylesheet" href="/dist/APlayer.min.css">
-<div id="aplayer"></div>
-<script type="text/javascript" src="/dist/APlayer.min.js"></script>
-<script type="text/javascript" src="/dist/music.js"></script>
-
-<!--鼠标移入又好，又坏了-->
-<script>
-       window.onload = function () {
-           var OriginTitile = document.title;
-           var titleTime;
-           document.addEventListener('visibilitychange', function () {
-               if (document.hidden) {
-                   $('[rel="shortcut icon"]').attr('href', "/Content/Images/fail.ico");
-                   document.title = '(●—●)喔哟，崩溃啦！';
-                   clearTimeout(titleTime);
-               }
-               else {
-                   $('[rel="shortcut icon"]').attr('href', "/Content/Images/icon.png");
-                   document.title = '(/≧▽≦/)咦！又好了！' + OriginTitile;
-                   titleTime = setTimeout(function () {
-                       document.title = OriginTitile;
-                   }, 2000);
-               }
-           });
-       }
-</script>
-
-<!--鼠标图像-->
-<style>
-       abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
-           margin: 0;
-           padding: 0;
-           cursor: url('/image/favicon.ico'),auto;
-       }
-</style>
+  <!--
+  --></body></html>
