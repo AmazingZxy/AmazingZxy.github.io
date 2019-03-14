@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="设计模式,">
+  <meta name="keywords" content="线性回归,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="阅读《大话设计模式》。 简介&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单工厂模式：又称为静态工厂方法模式，它属于类创建型模式。在简单工厂模式中，可以根据参数的不同返回不同类的实例。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
-<meta name="keywords" content="设计模式">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。把这些数据画出来，看起来是这个样子：横轴表示房子的面积，单位是平方英尺，纵轴表示房价，单位是千美元。那基于这组数据，现在有一套750平方英尺房子，那么这房子能卖多少钱。 红色的×表示已知的真实的数据集，可以通过一条直线去拟">
+<meta name="keywords" content="线性回归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式之简单工厂模式">
-<meta property="og:url" content="http://yoursite.com/2019/02/19/设计模式之简单工厂模式/index.html">
+<meta property="og:title" content="线性回归">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/线性回归/index.html">
 <meta property="og:site_name" content="ヾﾉ≧∀≦)o丫冲鸭">
-<meta property="og:description" content="阅读《大话设计模式》。 简介&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单工厂模式：又称为静态工厂方法模式，它属于类创建型模式。在简单工厂模式中，可以根据参数的不同返回不同类的实例。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。把这些数据画出来，看起来是这个样子：横轴表示房子的面积，单位是平方英尺，纵轴表示房价，单位是千美元。那基于这组数据，现在有一套750平方英尺房子，那么这房子能卖多少钱。 红色的×表示已知的真实的数据集，可以通过一条直线去拟">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-19T16:06:40.340Z">
+<meta property="og:image" content="http://pnlbqkckx.bkt.clouddn.com/51~8~%60ZK1_R%28242$ZZ3H5JT.png">
+<meta property="og:updated_time" content="2019-02-27T16:10:54.452Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式之简单工厂模式">
-<meta name="twitter:description" content="阅读《大话设计模式》。 简介&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单工厂模式：又称为静态工厂方法模式，它属于类创建型模式。在简单工厂模式中，可以根据参数的不同返回不同类的实例。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbs">
+<meta name="twitter:title" content="线性回归">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。把这些数据画出来，看起来是这个样子：横轴表示房子的面积，单位是平方英尺，纵轴表示房价，单位是千美元。那基于这组数据，现在有一套750平方英尺房子，那么这房子能卖多少钱。 红色的×表示已知的真实的数据集，可以通过一条直线去拟">
+<meta name="twitter:image" content="http://pnlbqkckx.bkt.clouddn.com/51~8~%60ZK1_R%28242$ZZ3H5JT.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/19/设计模式之简单工厂模式/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/27/线性回归/">
 
 
 
 
 
-  <title>设计模式之简单工厂模式 | ヾﾉ≧∀≦)o丫冲鸭</title>
+  <title>线性回归 | ヾﾉ≧∀≦)o丫冲鸭</title>
   
 
 
@@ -317,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/19/设计模式之简单工厂模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/线性回归/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Xin Ying">
@@ -334,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设计模式之简单工厂模式</h1>
+          <h1 class="post-title" itemprop="name headline">线性回归</h1>
         
 
         <div class="post-meta">
@@ -346,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-19T22:52:56+08:00">
-                2019-02-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T23:08:50+08:00">
+                2019-02-27
               </time>
             
 
@@ -369,8 +371,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -387,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/19/设计模式之简单工厂模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/19/设计模式之简单工厂模式/" itemprop="commentCount"></span>
+                <a href="/2019/02/27/线性回归/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/27/线性回归/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -396,7 +398,7 @@
 
           
           
-             <span id="/2019/02/19/设计模式之简单工厂模式/" class="leancloud_visitors" data-flag-title="设计模式之简单工厂模式">
+             <span id="/2019/02/27/线性回归/" class="leancloud_visitors" data-flag-title="线性回归">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -428,26 +430,13 @@
       
 
       
-        <pre><code>阅读《大话设计模式》。
-</code></pre><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单工厂模式：又称为静态工厂方法模式，它属于类创建型模式。在简单工厂模式中，可以根据参数的不同返回不同类的实例。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单工厂模式设计的角色有三种，分别是工厂，抽象产品和具体产品。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工厂可以理解为界面，对外沟通，产品理解为业务，内部操作。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。把这些数据画出来，看起来是这个样子：横轴表示房子的面积，单位是平方英尺，纵轴表示房价，单位是千美元。那基于这组数据，现在有一套750平方英尺房子，那么这房子能卖多少钱。</p>
+<p>红色的×表示已知的真实的数据集，可以通过一条直线去拟合，大概知道这个房子可以卖150000,但是发现直线的拟合效果并不是很好，可以采用二次方程去拟合（蓝色的线），大概知道这个房子可以卖到200000。</p>
 <a id="more"></a>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工厂：工程的作用就是创建所有具体产品类的实例。工厂类提供给外部调用，创建对应所需所需的产品对象。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;抽象产品：是所有具体产品角色的父类，它负责描述所有实例所共有的公共接口。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体产品：继承自抽象产品角色，一般为多个，是简单工厂模式的创建目标。工厂类返回的都是该角色的某一具体产品。</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实现一个计算器，输入两个数据和运算符号，返回计算结果。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在这里，抽象产品就是一个抽象类，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;达到的目的，只要输入运算符号，就可以实例化出对应的工厂对象，对于前台界面，只需要关心两个数字和运算符号怎么输入进来，当运算符号进来之后，工厂就会创建出来具体的对象，同时提供出一个运算操作的接口，具体的运算都是去实现这个接口的getResult方法，这样，当运算符号进入工厂类后，根据运算符号，去实例化具体的对象。<br>    运算类：<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Operation</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getResult</span><span class="params">(<span class="keyword">double</span> numberA,<span class="keyword">double</span> numberB)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<pre><code>加减乘除四个具体操作的类
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 加法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Add</span> <span class="keyword">implements</span> <span class="title">Operation</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getResult</span><span class="params">(<span class="keyword">double</span> numberA, <span class="keyword">double</span> numberB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> numberA + numberB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://pnlbqkckx.bkt.clouddn.com/51~8~%60ZK1_R%28242$ZZ3H5JT.png" alt="房价预测"></p>
+<p>对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。假设现在有一批房子的面积和对应价格的数据。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _*_ encoding=utf8 _*_</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">learn_rate = <span class="number">0.01</span></span><br><span class="line">train_epochs = <span class="number">1000</span></span><br><span class="line">step = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 房子的面积</span></span><br><span class="line">train_x = np.asarray([<span class="number">3.3</span>,<span class="number">4.4</span>,<span class="number">5.5</span>,<span class="number">6.71</span>,<span class="number">6.93</span>,<span class="number">4.168</span>,<span class="number">9.779</span>,<span class="number">6.182</span>,<span class="number">7.59</span>,<span class="number">2.167</span>,</span><br><span class="line">                <span class="number">7.042</span>,<span class="number">10.791</span>,<span class="number">5.313</span>,<span class="number">7.997</span>,<span class="number">5.654</span>,<span class="number">9.27</span>,<span class="number">3.1</span>])</span><br><span class="line"><span class="comment"># 对应面积的价格</span></span><br><span class="line">train_y = np.asarray([<span class="number">1.7</span>,<span class="number">2.76</span>,<span class="number">2.09</span>,<span class="number">3.19</span>,<span class="number">3.694</span>,<span class="number">1.573</span>,<span class="number">5.366</span>,<span class="number">2.596</span>,<span class="number">3.53</span>,<span class="number">1.221</span>,</span><br><span class="line">                <span class="number">4.827</span>,<span class="number">5.465</span>,<span class="number">1.65</span>,<span class="number">3.904</span>,<span class="number">2.42</span>,<span class="number">5.94</span>,<span class="number">1.3</span>])</span><br><span class="line"></span><br><span class="line">n_samples = train_x.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看一下数据点的分布</span></span><br><span class="line">plt.scatter(train_x, train_y)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义输入</span></span><br><span class="line">X = tf.placeholder(tf.float32, name = <span class="string">"float"</span>)</span><br><span class="line">Y = tf.placeholder(tf.float32, name = <span class="string">"float"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化参数  np.random.rand()函数可以返回一个或一组服从“0~1”均匀分布的随机样本值。</span></span><br><span class="line"><span class="comment"># 随机样本取值范围是[0,1)</span></span><br><span class="line">W = tf.Variable(np.random.rand(),name = <span class="string">"weight"</span>)</span><br><span class="line">b = tf.Variable(np.random.rand(),name = <span class="string">"bias"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 线性模型 点乘 对应位置相乘</span></span><br><span class="line">pred = tf.add(tf.multiply(X,W),b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 损失函数  均方误差函数</span></span><br><span class="line">cost = tf.reduce_sum(tf.pow(pred-Y,<span class="number">2</span>))/(<span class="number">2</span>*n_samples)</span><br><span class="line"><span class="comment"># 梯度下降算法 去优化cost函数的值 找到最小值 learn_rate下降的步伐</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(learn_rate).minimize(cost)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化变量</span></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始训练</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练样本数据</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(train_epochs):</span><br><span class="line">        <span class="keyword">for</span> (x,y) <span class="keyword">in</span> zip(train_x,train_y):</span><br><span class="line">            <span class="comment"># 梯度下降损失函数的最小值</span></span><br><span class="line">            sess.run(optimizer,feed_dict=&#123;X:x,Y:y&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 训练参数 找到最合适的w b</span></span><br><span class="line">        <span class="keyword">if</span> (epoch+<span class="number">1</span>) % step ==<span class="number">0</span> :</span><br><span class="line">            c = sess.run(cost,feed_dict=&#123;X:train_x,Y:train_y&#125;)</span><br><span class="line">            print(<span class="string">"epoch:"</span>,<span class="string">'%04d'</span> % (epoch+<span class="number">1</span>),<span class="string">"cost="</span>, <span class="string">"&#123;:.9f&#125;"</span>.format(c),</span><br><span class="line">                <span class="string">"W="</span>, sess.run(W), <span class="string">"b="</span>, sess.run(b))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"optimizaton finished"</span>)</span><br><span class="line">    training_cost = sess.run(cost, feed_dict=&#123;X:train_x,Y:train_y&#125;)</span><br><span class="line">    print(<span class="string">"最终的cost值="</span>, training_cost, <span class="string">"W="</span>, sess.run(W), <span class="string">"b="</span>, sess.run(b), <span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#现在训练好了参数w和b 就找到了拟合直线</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 图 x, y  r表示红色，o表示实心  label 标识</span></span><br><span class="line">    plt.plot(train_x, train_y, <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">    plt.plot(train_x, sess.run(W) * train_x + sess.run(b), label=<span class="string">'训练集的拟合线'</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试数据</span></span><br><span class="line">    test_x = np.asarray([<span class="number">6.83</span>, <span class="number">4.668</span>, <span class="number">8.9</span>, <span class="number">7.91</span>, <span class="number">5.7</span>, <span class="number">8.7</span>, <span class="number">3.1</span>, <span class="number">2.1</span>])</span><br><span class="line">    test_y = np.asarray([<span class="number">3.84</span>, <span class="number">2.273</span>, <span class="number">5.2</span>, <span class="number">4.831</span>, <span class="number">3.92</span>, <span class="number">4.24</span>, <span class="number">1.35</span>, <span class="number">1.03</span>])</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"均分误差"</span>)</span><br><span class="line">    testing_cost = sess.run(</span><br><span class="line">        tf.reduce_sum(tf.pow(pred - Y, <span class="number">2</span>)) / (<span class="number">2</span> * test_x.shape[<span class="number">0</span>]),</span><br><span class="line">        feed_dict=&#123;X: test_x, Y: test_y&#125;)  <span class="comment"># 损失函数</span></span><br><span class="line">    print(<span class="string">"测试集的损失="</span>, testing_cost)</span><br><span class="line">    print(<span class="string">"均方误差的绝对值:"</span>, abs(</span><br><span class="line">        training_cost - testing_cost))</span><br><span class="line"></span><br><span class="line">    plt.plot(test_x, test_y, <span class="string">'bo'</span>, label=<span class="string">'Testing data'</span>)</span><br><span class="line">    plt.plot(train_y, sess.run(W) * train_x + sess.run(b), label=<span class="string">'测试集的拟合线'</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
+<h1 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h1><p>房价其实不仅仅受到面积的影响，实际上，地理位置、楼层、房子的卧室数量等都会对价格有影响。现在要更久目前下面这些影响点对房价进行预测。<br>人均犯罪率<br>占地面积超过25,000平方英尺的住宅用地比例。<br>每个城镇非零售业务的比例。<br>查尔斯河虚拟变量 如果是大片土地则为1，否则为0<br>氮的氧化物浓度(分之1000万<br>平均每人所住房间数<br>1940年前业主单位所占的比例<br>到达波士顿就业中心的加权距离<br>到达径向公路的系数<br>所有财产价值的每10000美元的税率<br>城镇师生比例<br>城镇黑人比例按照式计算<br>地位较低人士的百分比</p>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 减法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">implements</span> <span class="title">Operation</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getResult</span><span class="params">(<span class="keyword">double</span> numberA, <span class="keyword">double</span> numberB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> numberA - numberB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 乘法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mul</span> <span class="keyword">implements</span>  <span class="title">Operation</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getResult</span><span class="params">(<span class="keyword">double</span> numberA, <span class="keyword">double</span> numberB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> numberA * numberB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 除法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Div</span>  <span class="keyword">implements</span>  <span class="title">Operation</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getResult</span><span class="params">(<span class="keyword">double</span> numberA, <span class="keyword">double</span> numberB)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> numberA/numberB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-简单工厂类
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperatorFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  Operation  <span class="title">getOperation</span><span class="params">(String operator)</span></span>&#123;</span><br><span class="line">        Operation operation = <span class="keyword">null</span>; <span class="comment">//多态</span></span><br><span class="line">        <span class="keyword">switch</span> (operator) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">                operation = <span class="keyword">new</span> Add();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">                operation = <span class="keyword">new</span> Sub();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">                operation = <span class="keyword">new</span> Mul();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">                operation = <span class="keyword">new</span> Div();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  operation;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-界面类
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line">public class TestMain &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Scanner scan = new Scanner(System.in);</span><br><span class="line">        System.out.println(&quot;请输入第一个数字：&quot;);</span><br><span class="line">        double numberA = scan.nextDouble();</span><br><span class="line">        System.out.println(&quot;请输入第二个数字：&quot;);</span><br><span class="line">        double numberB = scan.nextDouble();</span><br><span class="line">        System.out.println(&quot;请输入操作运算符：&quot;);</span><br><span class="line">        String operator = scan.next();</span><br><span class="line">        Operation oper = OperatorFactory.getOperation(operator);</span><br><span class="line">        System.out.println(oper.getResult(numberA, numberB));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
       
     </div>
     
@@ -464,7 +453,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+            <a href="/tags/线性回归/" rel="tag"># 线性回归</a>
           
         </div>
       
@@ -477,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/18/knn/" rel="next" title="knn">
-                <i class="fa fa-chevron-left"></i> knn
+              <a href="/2019/02/19/设计模式之简单工厂模式/" rel="next" title="设计模式之简单工厂模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之简单工厂模式
               </a>
             
           </div>
@@ -487,8 +476,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/27/线性回归/" rel="prev" title="线性回归">
-                线性回归 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/04/java内存管理/" rel="prev" title="java内存管理">
+                java内存管理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -648,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">2.</span> <span class="nav-text">实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多元线性回归"><span class="nav-number">1.</span> <span class="nav-text">多元线性回归</span></a></li></ol></div>
             
 
           </div>
