@@ -124,18 +124,27 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。假设现在有一批房子的面积和对应价格的数据。">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。现在有一批波士顿房价的数据，其对房价的影响因素有13个，我们取出第五个房价的大小作为影响因素去预测房价。">
 <meta name="keywords" content="tensorflow,机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单线性回归">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/简单线性回归/index.html">
 <meta property="og:site_name" content="ヾﾉ≧∀≦)o丫冲鸭">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。假设现在有一批房子的面积和对应价格的数据。">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。现在有一批波士顿房价的数据，其对房价的影响因素有13个，我们取出第五个房价的大小作为影响因素去预测房价。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T15:22:05.704Z">
+<meta property="og:image" content="http://i2.bvimg.com/682079/76db1789c10ae00f.png">
+<meta property="og:image" content="http://i1.bvimg.com/682079/9b8fea0f055fabf3.png">
+<meta property="og:image" content="http://i1.bvimg.com/682079/e877b0257769be7c.png">
+<meta property="og:image" content="http://i2.bvimg.com/682079/ba31b7c2e1be7a43.png">
+<meta property="og:image" content="http://i2.bvimg.com/682079/cc4857b64e26ee82.png">
+<meta property="og:image" content="http://i1.bvimg.com/682079/e877b0257769be7c.png">
+<meta property="og:image" content="http://i2.bvimg.com/682079/b1fd0e6693f1ec5d.png">
+<meta property="og:image" content="http://i2.bvimg.com/682079/34d8785495a94114.png">
+<meta property="og:updated_time" content="2019-03-30T16:27:53.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单线性回归">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。假设现在有一批房子的面积和对应价格的数据。">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。现在有一批波士顿房价的数据，其对房价的影响因素有13个，我们取出第五个房价的大小作为影响因素去预测房价。">
+<meta name="twitter:image" content="http://i2.bvimg.com/682079/76db1789c10ae00f.png">
 
 
 
@@ -488,7 +497,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  540
+                  2.3k
                 </span>
               
 
@@ -504,7 +513,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  8
                 </span>
               
             </div>
@@ -525,8 +534,15 @@ tpwidget("show");</script>
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。假设现在有一批房子的面积和对应价格的数据。<br><a id="more"></a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _*_ encoding=utf8 _*_</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入需要的python库</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取波士顿房价数据集，并且房间的大小去预测波士顿房价</span></span><br><span class="line">data = tf.contrib.learn.datasets.load_dataset(<span class="string">'boston'</span>)</span><br><span class="line">X_train,Y_train = data.data[:,<span class="number">5</span>],data.target <span class="comment"># 取出第五个因数作为因变量</span></span><br><span class="line"><span class="comment"># 查看取出来的训练数据和形状，[506,1]</span></span><br><span class="line">print(X_train)</span><br><span class="line">print(X_train.shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取多少个训练数据样本</span></span><br><span class="line">n_sample = len(X_train)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 为训练数据声明占位符</span></span><br><span class="line">X = tf.placeholder(tf.float32,name = <span class="string">"X"</span>)</span><br><span class="line">Y = tf.placeholder(tf.float32,name = <span class="string">"Y"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建权重和偏置项并且都置为0</span></span><br><span class="line">b = tf.Variable(<span class="number">0.0</span>)</span><br><span class="line">w = tf.Variable(<span class="number">0.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义用于房价预测的线性回归模型</span></span><br><span class="line">line_model = X * w + b</span><br><span class="line"><span class="comment"># 计算预测的房价和取出来的target的差值，作为损失</span></span><br><span class="line">loss = tf.square(Y - line_model,name= <span class="string">"loss"</span>)</span><br><span class="line"><span class="comment"># 采用梯度下降优化器优化权重</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(learning_rate=<span class="number">0.01</span>).minimize((loss))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">total = []</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 声明图</span></span><br><span class="line">    writer = tf.summary.FileWriter(<span class="string">"graphs"</span>, sess.graph)</span><br><span class="line">    <span class="comment"># 100 迭代</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        total_loss = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X_train,Y_train):</span><br><span class="line">            <span class="comment"># 这儿计算出来的是每一次迭代每一个训练数据的预测值和真实值的损失，</span></span><br><span class="line">            _,_loss = sess.run([optimizer,loss],feed_dict=&#123;X:x,Y:y&#125;)</span><br><span class="line">            <span class="comment"># 将每一次损失相加</span></span><br><span class="line">            total_loss += _loss</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 得到每一次迭代的损失</span></span><br><span class="line">        total.append(total_loss / n_sample)</span><br><span class="line">        print(<span class="string">'Epoch &#123;0&#125;: Loss &#123;1&#125;'</span>.format(i,total_loss/n_sample))</span><br><span class="line">        writer.close()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查看训练的参数</span></span><br><span class="line">    b_value,w_value = sess.run([b,w])</span><br><span class="line">    print(w_value)</span><br><span class="line">    print(b_value)</span><br><span class="line">    <span class="comment"># 查看结果 Y_pred就是用训练的参数得到的线性回归模型</span></span><br><span class="line">    Y_pred = X_train * w_value + b_value</span><br><span class="line">    print(<span class="string">"train finished"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 蓝色的数原始数据，红色的线就是训练出来的线性模型</span></span><br><span class="line">    plt.plot(X_train,Y_train, <span class="string">"boston"</span>, label = <span class="string">"data"</span>)</span><br><span class="line">    plt.plot(X_train,Y_pred,<span class="string">'r'</span>,label = <span class="string">"predicted data"</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br><span class="line">    <span class="comment"># 查看训练过程中loss的变化</span></span><br><span class="line">    plt.plot(total)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在吴恩达的机器学习的视频中有一个房价预测问题，通过真实的一些房价的数据去预测房价。对此，可以根据y=wx+b回归函数从房子的面积对价格进行预测。现在有一批波士顿房价的数据，其对房价的影响因素有13个，我们取出第五个房价的大小作为影响因素去预测房价。<br><a id="more"></a></p>
+<h2 id="简单线性回归"><a href="#简单线性回归" class="headerlink" title="简单线性回归"></a>简单线性回归</h2><p>查看一下数据的分布<br><img src="http://i2.bvimg.com/682079/76db1789c10ae00f.png" alt="散点图"><br>对于房价预测问题，我们需要建立一个数学模型去拟合这些数据，使得不同的房子的面积对应不同的房价。给出的数学模型为<br>\begin{aligned}<br>y = θ_0 + θ_1*x<br>\end{aligned}<br>对于$θ_0$和$θ_1$称之为模型参数，已知x，也就是求得$θ_0$和$θ_1$我们就可以知道对应面积的房子的价格。当得到最佳的$θ_0$和$θ_1$之后，也就得到了最拟合实际的房价y。<br>那么如何求得最合适的$θ_i$呢，根据上面的散点图作为训练数据，我们选择的参数决定了我们得到的直线相对于我们的训练集的准确程度，模型所预测的值与训练集中实际值之间的差距越小，则代表我们获取的$θ_i$越好。所以在线性回归中我们要解决一个最小化的问题，而<strong>模型所预测的值与训练集中实际值之间的差距（下图中蓝线所指）就是建模误差</strong><br><img src="http://i1.bvimg.com/682079/9b8fea0f055fabf3.png" alt="Markdown"><br>我们的目标便是选择出可以使得建模误差的平方和能够最小的模型参数，即使得代价函数（公式如下）最小。</p>
+<p><img src="http://i1.bvimg.com/682079/e877b0257769be7c.png" alt="Markdown"><br>m是样本总数，1/2m是将这个表达式简化。<br>\begin{aligned}<br>h_\Theta (x^i) = \Theta _0 + \Theta _1x<br>\end{aligned}<br>所以这个问题就是：找到能使我们训练集中的预测值和真实值的差的平方的和的1/2m最小的$0_1$和$0_0$值。上述公式也成为平方误差函数，也就我们所需要用到的损失函数。<br>当$J(θ_0,θ_1)$越小，也就是反应了预测的房价和真实房价的误差也就越小，我们通过用梯度下降的方法去求$J(θ_0,θ_1)$得最小值。</p>
+<h2 id="梯度下降法求最小值"><a href="#梯度下降法求最小值" class="headerlink" title="梯度下降法求最小值"></a>梯度下降法求最小值</h2><p>度下降背后的思想是：开始时我们随机选择一个参数的组合（θ0,θ1,…,θn），计算代价函数，然后我们寻找下一个能让代价函数值下降最多的参数组合。我们持续这么做直到到到一个局部最小值（local minimum），因为我们并没有尝试完所有的参数组合，所以不能确定我们得到的局部最小值是否便是全局最小值（global minimum），选择不同的初始参数组合，可能会找到不同的局部最小值。<br><img src="http://i2.bvimg.com/682079/ba31b7c2e1be7a43.png" alt="Markdown"><br>想象一下你正站立在山的这一点上，站立在你想象的公园这座红色山上，在梯度下降算法中，我们要做的就是旋转360度，看看我们的周围，并问自己要在某个方向上，用小碎步尽快下山。这些小碎步需要朝什么方向？如果我们站在山坡上的这一点，你看一下周围，你会发现最佳的下山方向，你再看看周围，然后再一次想想，我应该从什么方向迈着小碎步下山？然后你按照自己的判断又迈出一步，重复上面的步骤，从这个新的点，你环顾四周，并决定从什么方向将会最快下山，然后又迈进了一小步，并依此类推，直到你接近局部最低点的位置。<br>梯度下降的公式<br>\begin{aligned}<br>\Theta _j := \Theta _j - \alpha \frac{\partial J(\Theta _0,\Theta _1)}{\partial \Theta _j} (j = 0 ,j = 1)<br>\end{aligned}<br>其中α是学习率（learning rate），它决定了我们沿着能让代价函数下降程度最大的方向向下迈出的步子有多大，在批量梯度下降中，我们每一次都同时让所有的参数($θ_0$,$θ_1$)减去学习速率乘以代价函数的导数。所以梯度下降中，我们要更新$θ_0$和$θ<em>1$，当 j=0 和 j=1 时，就会产生更新，所以你将更新$J</em>θ0$和$J_θ1$。如果你要更新这个等式，你<strong>需要同时更新θ0和θ1</strong>，也就是<br>\begin{aligned}<br>&amp;\Theta _0 := \Theta _0 - \alpha \frac{\partial J(\Theta _0,\Theta _1)}{\partial \Theta _0} (j = 0 )\<br>&amp;\Theta _1 := \Theta _1 - \alpha \frac{\partial J(\Theta _0,\Theta _1)}{\partial \Theta _1} (j = 1 )<br>\end{aligned}</p>
+<p>那么接下来对θ赋值，使得J(θ)按梯度下降最快方向进行，一直迭代下去，最终得到局部最小值。其中α是学习率。它决定了我们沿着能让代价函数下降程度最大的方向向下迈出的步子有多大。由于导数总是变化最快的方向，所以对$J(θ)$来说，也就是它变化最快的方向，对于J(θ),我们知道它的图像大致是这样。<br><img src="http://i2.bvimg.com/682079/cc4857b64e26ee82.png" alt="Markdown"><br>梯度下降法的更新规则<br>求导的目的，也就是取的该点的斜率，就是红色直线与函数相切于这一点，这条刚好与函数曲线相切的直线的斜率正好是这个三角形的高度除以这个水平长度，现在，这条线有一个正斜率，也就是说它有正导数，因此会得到得到的新的$θ_1$，$θ_1$更新后等于$θ_1$减去一个正数乘以α。<br>但是步长α不能太大也不能太小<br>如果α太小了，也是就学习速率太小，这样就需要很多步才能到达最低点。<br>如果α太大，梯度下降法可能会越过最低点，甚至可能无法收敛，甚至发散。<br>如果$θ_1$已经在局部最低点了，这时候求出来的斜率为0，那么它使得$θ_1$不再改变，也就是新的$θ_1$等于原来的$θ_1$,所以这个时候梯度函数就什么都没有做。同时呢，当α固定，斜率越大，$θ_1$更新的幅度也就越大，也就走的越快，斜率越小，更新幅度就小，也就走的慢，这个时候就有可能达到局部最优解。也就是在梯度下降法中，当接近局部最低点时，梯度下降法会自动采取更小的幅度。没有没有必要再这种情况再去减小α。<br>梯度下降算法以用来最小化任何代价函数J，不只是线性回归中的代价函数J。<br>现在运用梯度下降算法去求线性回归模型的最优解了。<br>梯度下降算法</p>
+<p>\begin{aligned}<br>\Theta _j := \Theta _j - \alpha \frac{\partial J(\Theta _0,\Theta _1)}{\partial \Theta _j} (j = 0 ,j = 1)<br>\end{aligned}</p>
+<p>线性回归函数<br>\begin{aligned}<br>h_\Theta (x) = \Theta _0 + \Theta _1x<br>\end{aligned}<br>线性回归的损失函数<br><img src="http://i1.bvimg.com/682079/e877b0257769be7c.png" alt="Markdown"><br>对损失函数求导，用梯度下降法去更新$θ_j$的值<br>当j=0，求导<br><img src="http://i2.bvimg.com/682079/b1fd0e6693f1ec5d.png" alt="Markdown"><br>当j=1，求导<br><img src="http://i2.bvimg.com/682079/34d8785495a94114.png" alt="Markdown"><br>由于在梯度下降的每一步中，我们都用到了所有的训练样本，所以也叫批量梯度下降。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><h3 id="tensorflow"><a href="#tensorflow" class="headerlink" title="tensorflow"></a>tensorflow</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _*_ encoding=utf8 _*_</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入需要的python库</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取波士顿房价数据集，并且房间的大小去预测波士顿房价</span></span><br><span class="line">data = tf.contrib.learn.datasets.load_dataset(<span class="string">'boston'</span>)</span><br><span class="line">X_train,Y_train = data.data[:,<span class="number">5</span>],data.target <span class="comment"># 取出第五个因数作为因变量</span></span><br><span class="line"><span class="comment"># 查看取出来的训练数据和形状，[506,1]</span></span><br><span class="line">print(X_train)</span><br><span class="line">print(X_train.shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取多少个训练数据样本</span></span><br><span class="line">n_sample = len(X_train)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 为训练数据声明占位符</span></span><br><span class="line">X = tf.placeholder(tf.float32,name = <span class="string">"X"</span>)</span><br><span class="line">Y = tf.placeholder(tf.float32,name = <span class="string">"Y"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建权重和偏置项并且都置为0</span></span><br><span class="line">b = tf.Variable(<span class="number">0.0</span>)</span><br><span class="line">w = tf.Variable(<span class="number">0.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义用于房价预测的线性回归模型</span></span><br><span class="line">line_model = X * w + b</span><br><span class="line"><span class="comment"># 计算预测的房价和取出来的target的差值，作为损失</span></span><br><span class="line">loss = tf.square(Y - line_model,name= <span class="string">"loss"</span>)</span><br><span class="line"><span class="comment"># 采用梯度下降优化器优化权重</span></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(learning_rate=<span class="number">0.01</span>).minimize((loss))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">total = []</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 声明图</span></span><br><span class="line">    writer = tf.summary.FileWriter(<span class="string">"graphs"</span>, sess.graph)</span><br><span class="line">    <span class="comment"># 100 迭代</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        total_loss = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x,y <span class="keyword">in</span> zip(X_train,Y_train):</span><br><span class="line">            <span class="comment"># 这儿计算出来的是每一次迭代每一个训练数据的预测值和真实值的损失，</span></span><br><span class="line">            _,_loss = sess.run([optimizer,loss],feed_dict=&#123;X:x,Y:y&#125;)</span><br><span class="line">            <span class="comment"># 将每一次损失相加</span></span><br><span class="line">            total_loss += _loss</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 得到每一次迭代的损失</span></span><br><span class="line">        total.append(total_loss / n_sample)</span><br><span class="line">        print(<span class="string">'Epoch &#123;0&#125;: Loss &#123;1&#125;'</span>.format(i,total_loss/n_sample))</span><br><span class="line">        writer.close()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查看训练的参数</span></span><br><span class="line">    b_value,w_value = sess.run([b,w])</span><br><span class="line">    print(w_value)</span><br><span class="line">    print(b_value)</span><br><span class="line">    <span class="comment"># 查看结果 Y_pred就是用训练的参数得到的线性回归模型</span></span><br><span class="line">    Y_pred = X_train * w_value + b_value</span><br><span class="line">    print(<span class="string">"train finished"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 蓝色的数原始数据，红色的线就是训练出来的线性模型</span></span><br><span class="line">    plt.plot(X_train,Y_train, <span class="string">"boston"</span>, label = <span class="string">"data"</span>)</span><br><span class="line">    plt.plot(X_train,Y_pred,<span class="string">'r'</span>,label = <span class="string">"predicted data"</span>)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br><span class="line">    <span class="comment"># 查看训练过程中loss的变化</span></span><br><span class="line">    plt.plot(total)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>吴恩达机器学习课程</p>
 
       
     </div>
@@ -626,8 +642,17 @@ tpwidget("show");</script>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -712,6 +737,22 @@ tpwidget("show");</script>
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单线性回归"><span class="nav-number">1.</span> <span class="nav-text">简单线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降法求最小值"><span class="nav-number">2.</span> <span class="nav-text">梯度下降法求最小值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python"><span class="nav-number">3.1.</span> <span class="nav-text">python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tensorflow"><span class="nav-number">3.2.</span> <span class="nav-text">tensorflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -739,7 +780,7 @@ tpwidget("show");</script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14k</span>
+    <span title="Site words total count">16.2k</span>
   
 </div>
 
@@ -1379,6 +1420,26 @@ tpwidget("show");</script>
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
