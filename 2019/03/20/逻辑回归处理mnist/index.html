@@ -136,7 +136,7 @@
 <meta property="og:image" content="http://i1.bvimg.com/682079/4205182ca34f5999.png">
 <meta property="og:image" content="http://i2.bvimg.com/682079/dd08264c6edece3c.png">
 <meta property="og:image" content="http://i2.bvimg.com/682079/c38e77fc030fea68.png">
-<meta property="og:updated_time" content="2019-04-02T15:39:33.397Z">
+<meta property="og:updated_time" content="2019-04-03T15:38:33.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归">
 <meta name="twitter:description" content="逻辑回归进行分类的主要思想就是：根据现有的数据对分类边界线建立回归公式，对此进行分类。训练分类器就是要找到最佳拟合参数。使用的就是最优化算法。logistic回归的优缺点优点：计算代价不大，易于分类或理解缺点：容易欠拟合，分类精度可能不高">
@@ -493,7 +493,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.6k
+                  2.8k
                 </span>
               
 
@@ -509,7 +509,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  11
                 </span>
               
             </div>
@@ -538,17 +538,19 @@ tpwidget("show");</script>
 <script type="math/tex; mode=display">
 J(\Theta ) = \frac{1}{2m}\sum_{i=1}^{m}(h_\Theta (x^{(i)})-y^{(i)})^2</script><p>由此，我们可以定义逻辑回归的损失函数为</p>
 <script type="math/tex; mode=display">
-J(\Theta ) = \frac{1}{m}\sum_{i=1}^{m}(Cost(h_\Theta (x^i),y^i)</script><p>从刚刚的sigmoid图像可得到一下总结，可以应用最大释然估计法估计模型参数，从而得到逻辑斯提回归模型。</p>
-<script type="math/tex; mode=display">
-P(y = 1|x;θ) =     h_θ(x)\\
-P(y = 0|x;θ) = 1 - h_θ(x)</script><p>那么逻辑回归的cost函数可以表示为</p>
+J(\Theta ) = \frac{1}{m}\sum_{i=1}^{m}(Cost(h_\Theta (x^i),y^i)</script><p>将概率取对数，函数的单调性保持不变，那么逻辑回归的代价函数可以表示为</p>
 <script type="math/tex; mode=display">
 Cost(h_\Theta (x),y) = \left\{\begin{matrix}
--log(h_\Theta (x)) \quad  (if \quad y = 1)&  & \\ 
- -log(1-h_\Theta (x)) \quad  (if\quad y = 0)&  & 
-\end{matrix}\right.</script><p>上面两个式子也就是在样本x和参数θ的情况下，样本x属于正样本（y=1)和负样本（y=0)的条件概率，但是这是非常理想的情况下，我们并不是只有把sigmoid值为1才分为1类，把sigmoid值为0才分为0类，而是把sigmoid值大于0.5分为1类，把sigmoid值小于0.5分为0类。所以把上述公式合二为一之后可以得到</p>
+log(h_\Theta (x)) \quad  (if \quad y = 1)&  & \\ 
+ log(1-h_\Theta (x)) \quad  (if\quad y = 0)&  & 
+\end{matrix}\right.</script><p>上面两个式子也就是在样本x和参数θ的情况下，样本x属于正样本（y=1)和负样本（y=0)的条件概率，但是这是非常理想的情况下，我们并不是只有把sigmoid值为1才分为1类，把sigmoid值为0才分为0类，而是把sigmoid值大于0.5分为1类，把sigmoid值小于0.5分为0类。</p>
+<h2 id="逻辑回归假设"><a href="#逻辑回归假设" class="headerlink" title="逻辑回归假设"></a>逻辑回归假设</h2><p>因为y值非0即1，所以我们用指数的方式将这两个公式合并成一个公式。</p>
 <script type="math/tex; mode=display">
-Cost(h_\Theta(x),y) = -y log(h(x)) - (1-y)log(1-h(x))</script><p>合并出来的这个新的函数称之为cost函数，也为代价函数(Cost Function)。当y等于1时，(1-y)项(第二项)为0；当y等于0时，y项(第一项)为0。<br>那么逻辑回归的损失函数为</p>
+P(y|x;\Theta ) = h_\Theta (x)^y*(1-h\Theta (x))^(1-y)</script><p>由此可以得到似然函数</p>
+<script type="math/tex; mode=display">
+L(\Theta ) = \prod_{i=1}^{m} P(y_i|x_i;\Theta ) = \prod_{i=1}^{m}(h_\Theta (x_i))^{(y_i)}(1-h_\Theta (x_i))^{(1-y_i)}</script><p>取对数，简化运算</p>
+<script type="math/tex; mode=display">
+l(\Theta ) = logL(\Theta ) = \sum_{i=1}^{m}(y_ilogh_\Theta (x_i) + (1-y_i)log(1-h_\Theta (x_i)))</script><p>合并出来的这个新的函数称之为cost函数，也为代价函数(Cost Function)。此时可以用梯度上升法求极大释然函数，求出来的$\Theta$就是最佳的参数。但是我们希望在参数更新或衡量模型优劣时是需要一个能充分反映模型表现误差的代价函数，希望损失函数越小越好,所以我们取上面对数函数概率的相反数。此时就可以通过梯度下降法去更新参数。<br>那么逻辑回归的损失函数为</p>
 <script type="math/tex; mode=display">
 J(θ) =  - \frac{1}{m} \sum_{i=1}{m}(Cost(h_θx^{(i)},y^{(i)}))\\
  =- \frac{1}{m} [\sum_{i=1}^{m}y^{(i)}log(h_θ(x^{(i)})) + (1-y^{(i)}log(1-h_θ(x^{(i)}))]</script><p>其中，m为样本的总数，y(i)表示第i个样本的类别，x(i)表示第i个样本，需要注意的是θ是多维向量，x(i)也是多维向量。<br>对J(θ)求极小值，就得到了θ的估计值。<br>得到损失函数之后，就可以通过梯度下降法去反复更新每一个参数。梯度下降法为：</p>
@@ -762,7 +764,7 @@ J(θ) =  - \frac{1}{m} \sum_{i=1}{m}(Cost(h_θx^{(i)},y^{(i)}))\\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于最优化算法的最佳回归系数确定"><span class="nav-number">2.</span> <span class="nav-text">基于最优化算法的最佳回归系数确定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">2.1.</span> <span class="nav-text">梯度下降算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法求最佳参数"><span class="nav-number">2.2.</span> <span class="nav-text">梯度下降法求最佳参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多元分类"><span class="nav-number">3.</span> <span class="nav-text">多元分类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于最优化算法的最佳回归系数确定"><span class="nav-number">2.</span> <span class="nav-text">基于最优化算法的最佳回归系数确定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">2.1.</span> <span class="nav-text">梯度下降算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归假设"><span class="nav-number">3.</span> <span class="nav-text">逻辑回归假设</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降法求最佳参数"><span class="nav-number">3.1.</span> <span class="nav-text">梯度下降法求最佳参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多元分类"><span class="nav-number">4.</span> <span class="nav-text">多元分类</span></a></li></ol></div>
             
 
           </div>
@@ -796,7 +798,7 @@ J(θ) =  - \frac{1}{m} \sum_{i=1}{m}(Cost(h_θx^{(i)},y^{(i)}))\\
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.1k</span>
   
 </div>
 
