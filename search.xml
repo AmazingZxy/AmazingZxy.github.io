@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[spring多数据源]]></title>
+    <url>%2F2019%2F04%2F14%2Fspring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[spring单数据源使用jdbc]]></title>
+    <url>%2F2019%2F04%2F14%2Fspring%E5%8D%95%E6%95%B0%E6%8D%AE%E6%BA%90%E4%BD%BF%E7%94%A8jdbc%2F</url>
+    <content type="text"><![CDATA[在实际的生产应用中，会涉及到操作数据库，在这使用内嵌的h2数据库，简单方便操作。 导入依赖首先需要导入项目需要的依赖，目前需要的依赖有：actuator,H2,JDBC,Lombok,web1、actuator:actuator是监控系统健康情况的工具。2、H2 数据库3、jdbc:对数据库的数据需要使用到jdbc操作4、Lombok:简单理解就是Lombok想要解决了的是在我们实体Bean中大量的Getter/Setter方法5、web:以web的方式启动，常用。123456789101112131415161718192021222324252627282930dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;optional&gt;true&lt;/optional&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt;&lt;/dependencies&gt; 简单步骤1、引入数据库驱动-H22、引入jdbc依赖 spring-boot-starter-jdbc3、获取dataSource Bean,打印信息。4、通过/actuator/beans查看bean 获取数据源信息第一步：首先application.properites填写服务需要的配置信息。spring-boot默认使用了hikariCP12345678910111213141516# 端口port= 8081# ..还不了解management.endpoints.web.exposure.include=*spring.output.ansi.enabled=ALWAYS# 数据库信息spring.datasource.url=jdbc:h2:mem:testdbspring.datasource.username=zxyspring.datasource.password=spring.datasource.hikari.maximumPoolSize=5spring.datasource.hikari.minimumIdle=5spring.datasource.hikari.idleTimeout=600000spring.datasource.hikari.connectionTimeout=30000spring.datasource.hikari.maxLifetime=1800000 第二步：在配置创建sql初始化数据库,schema.sql和data.sql确定初始化SQL文件。12spring.dataSource.schemaspring.dataSource.data 创建一个schema.sql文件，里面填写的是创建sql的语句1CREATE TABLE Test (ID INT IDENTITY, BAR VARCHAR(64)); 有了表，然后插入两条数据，创建一个data.sql，里面的内容有12INSERT INTO Test (ID, BAR) VALUES (1, 'aaa');INSERT INTO Test (ID, BAR) VALUES (2, 'bbb'); 第三步：获取数据源信息为了方便程序启动的时候查看获取的配置信息，程序继承 CommandLineRunner并实现run方法，将自己需要显示的内容写进去，就可以在程序启动的时候查看到数据加载的信息了。1234@Override public void run(String... args) throws Exception &#123; &#125; 实现建立连接方法并且获取一个连接123456789101112131415161718192021222324252627282930313233@SpringBootApplication@Slf4jpublic class DemoApplication implements CommandLineRunner &#123; private final static Logger log = LoggerFactory.getLogger(DemoApplication.class); @Autowired private DataSource dataSource; @Autowired private JdbcTemplate jdbcTemplate; @Override public void run(String... args) throws Exception &#123; showConnection(); showData(); &#125; //查看连接信息 private void showConnection() throws SQLException &#123; log.info(dataSource.toString()); Connection conn = dataSource.getConnection(); log.info(conn.toString()); conn.close(); &#125; // 获取一个连接 private void showData() &#123; jdbcTemplate.queryForList("SELECT * FROM FOO") .forEach(row -&gt; log.info(row.toString())); &#125; public static void main(String[] args) &#123; SpringApplication.run(DemoApplication.class, args); &#125;&#125; 查看运行结果123452019-04-16 23:53:00.714 INFO 14116 --- [ main] com.example.demo.DemoApplication :HikariProxyConnection@656844049 wrapping conn0: url=jdbc:h2:mem:testdb user=ZXY2019-04-16 23:53:00.716 DEBUG 14116 --- [ main] o.s.jdbc.core.JdbcTemplate :Executing SQL query [SELECT * FROM FOO]2019-04-16 23:53:00.779 INFO 14116 --- [ main] com.example.demo.DemoApplication : &#123;ID=1, BAR=aaa&#125;2019-04-16 23:53:00.781 INFO 14116 --- [ main] com.example.demo.DemoApplication : &#123;ID=2, BAR=bbb&#125; 可以通过http://127.0.0.1:8080/actuator/beans查看spring里面的bean]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+        <tag>spring-boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[spring-HelloWorld]]></title>
+    <url>%2F2019%2F04%2F14%2Fspring-HelloWorld%2F</url>
+    <content type="text"><![CDATA[spring项目可以通过https://start.spring.io/来搭建一个spring的初步骨架，接下来通过该网站搭建一个spring项目的helloworld。 进入网站进入https://start.spring.io/。 填写信息选择具体用什么方式来搭建，选择语言，spring框架的版本，还需要填写你的Group和Artifact。具体如下。 导入项目到IDE将生成好的spring项目导入ide，查看目录结构。并运行main函数。 程序入口类如下123456789101112131415161718import org.springframework.boot.SpringApplication;import org.springframework.boot.autoconfigure.SpringBootApplication;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.RestController;@SpringBootApplication@RestControllerpublic class SpringHelloApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(SpringHelloApplication.class, args); &#125; @RequestMapping("/hello") public String hello()&#123; return "hello"; &#125;&#125; terminal验证请求在terminal输入curl http://127.0.0.1:8080/hello,就会返回hello的结果。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+        <tag>spring-boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java基本数据类型]]></title>
+    <url>%2F2019%2F04%2F08%2Fjava%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[java有八种基本数据类型，分别是 类型 所占字节 位数 取值范围 默认值 对应包装类 byte 1 8 -128~127 0 Byte char 2 12 u0000~uFFF ‘\u0000’ Char short 2 16 －32768～32767 0 Short int 4 32 -2147483648-2147483648 0 Integer float 4 32 -3.40292347E+38-3.40292347E+38 0.0f Float long 8 -9233372036854477808-9233372036854477808 0 Long double 8 64 -1.79769313486231570E+308-1.79769313486231570E+308 0.0d Double boolean 1/8 1 true, false false Boolean]]></content>
+      <categories>
+        <category>java基本数据类型</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[多层感知机实现mnist分类]]></title>
     <url>%2F2019%2F03%2F21%2F%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AE%9E%E7%8E%B0mnist%E5%88%86%E7%B1%BB%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单层感知器（Single Layer Perceptron）是最简单的神经网络。它包含输入层和输出层，而输入层和输出层是直接相连的。下面这个例子取三个输入神经元（A，B，C）并训练它学习逻辑 AB+BC。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960# _*_ encoding=utf8 _*_import tensorflow as tfimport tensorflow.contrib.layers as layersn_hidden_1 = 30n_hidden_2 = 256n_classes = 10n_input = 784batch_size =200learning_rate = 0.001max_epoch = 10# 获取mnist数据from tensorflow.examples.tutorials.mnist import input_datamnist = input_data.read_data_sets("./data",one_hot=True)def multilayer_model(x): ''' 建立多层感知机模型 :param x: :return: ''' print(x.shape) fc1 = layers.fully_connected(x,n_hidden_1,activation_fn = tf.nn.relu,scope = 'fc1') print(fc1.shape) fc2 = layers.fully_connected(fc1,n_hidden_2,activation_fn=tf.nn.relu,scope='fc2') print(fc2.shape) out = layers.fully_connected(fc2,n_classes,activation_fn=None,scope='out') return out# [None, 784] [None,10]x = tf.placeholder(tf.float32,[None,n_input],name="X")y = tf.placeholder(tf.float32,[None,n_classes],name='Y')y_ = multilayer_model(x)loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y_,labels=y))train = tf.train.AdamOptimizer(learning_rate= learning_rate).minimize(loss)init = tf.global_variables_initializer()with tf.Session() as sess: sess.run(init) # 10个batch for epoch in range(10): epoch_loss = 0 #跑完整个数据集合步长 batch_steps = int(mnist.train.num_examples/batch_size) for i in range(batch_steps): batch_x,batch_y = mnist.train.next_batch((batch_size)) _,c = sess.run([train,loss],feed_dict=&#123;x:batch_x,y:batch_y&#125;) epoch_loss += c / batch_steps print('Epoch %0.2d,Loss = %.6f '%(epoch,epoch_loss)) corrent_perdiction = tf.equal(tf.argmax(y_,1),tf.argmax(y,1)) accuracy = tf.reduce_mean(tf.cast(corrent_perdiction,tf.float32)) print('Accuracy:',accuracy.eval(&#123;x:mnist.test.images,y:mnist.test.labels&#125;))]]></content>
