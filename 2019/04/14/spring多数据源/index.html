@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="java,spring,spring-boot,">
 
 
 
@@ -124,17 +124,18 @@
 
 
 
-<meta name="description" content="ヾﾉ≧∀≦)o来啊，快活啊!">
+<meta name="description" content="在实际的生产应用中，很可能会涉及到多个数据源，对于多个数据源的采取的管理方法使用是在配置文件将不同的数据源的配置分开写，即使密码用户名等一样，这样有一个好处就是方便管理。同时需要每次使用的时候关注数据源。">
+<meta name="keywords" content="java,spring,spring-boot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring多数据源">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/spring多数据源/index.html">
 <meta property="og:site_name" content="ヾﾉ≧∀≦)o丫冲鸭">
-<meta property="og:description" content="ヾﾉ≧∀≦)o来啊，快活啊!">
+<meta property="og:description" content="在实际的生产应用中，很可能会涉及到多个数据源，对于多个数据源的采取的管理方法使用是在配置文件将不同的数据源的配置分开写，即使密码用户名等一样，这样有一个好处就是方便管理。同时需要每次使用的时候关注数据源。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-14T14:35:55.997Z">
+<meta property="og:updated_time" content="2019-04-17T15:54:24.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring多数据源">
-<meta name="twitter:description" content="ヾﾉ≧∀≦)o来啊，快活啊!">
+<meta name="twitter:description" content="在实际的生产应用中，很可能会涉及到多个数据源，对于多个数据源的采取的管理方法使用是在配置文件将不同的数据源的配置分开写，即使密码用户名等一样，这样有一个好处就是方便管理。同时需要每次使用的时候关注数据源。">
 
 
 
@@ -417,6 +418,28 @@ tpwidget("show");</script>
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -465,7 +488,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  451
                 </span>
               
 
@@ -481,7 +504,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -502,7 +525,16 @@ tpwidget("show");</script>
       
 
       
-        
+        <p>在实际的生产应用中，很可能会涉及到多个数据源，对于多个数据源的采取的管理方法使用是在配置文件将不同的数据源的配置分开写，即使密码用户名等一样，这样有一个好处就是方便管理。同时需要每次使用的时候关注数据源。</p>
+<a id="more"></a>
+<h2 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h2><p>当两个数据源有一个比较主要的时候，可以用配置@Primary注解，这个注解会告诉spring把配置@Primary的bean作为一个主要的bean,那后面springboot相关的配置都会围绕Primary配置的bean开展</p>
+<h2 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h2><p>认为两个dataSource都很重要，可以exclude一些内容，让自己去控制<br>首先在配置文件配置两个dataSource<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">foo.datasource.url=jdbc:h2:mem:foo</span><br><span class="line">foo.datasource.username=sa</span><br><span class="line">foo.datasource.password=</span><br><span class="line"></span><br><span class="line">bar.datasource.url=jdbc:h2:mem:bar</span><br><span class="line">bar.datasource.username=sa</span><br><span class="line">bar.datasource.password=</span><br><span class="line">exclude掉DataSourceAutoConfiguration、DataSourceTransactionManagerAutoConfiguration、JdbcTemplateAutoConfiguration采用自己去管理dataSource。</span><br><span class="line">```java</span><br><span class="line"><span class="meta">@SpringBootApplication</span>(exclude = &#123; DataSourceAutoConfiguration.class,</span><br><span class="line">        DataSourceTransactionManagerAutoConfiguration.class,</span><br><span class="line">        JdbcTemplateAutoConfiguration.class&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>使用ConfigurationProperties把配置信息读取并自动封装成实体,将bean方法与外部的配置信息进行绑定，把相关的配置都赋值进去</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"foo.datasource"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> DataSourceProperties <span class="title">fooDataSourceProperties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DataSourceProperties();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"bar.datasource"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> DataSourceProperties <span class="title">barDataSourceProperties</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  <span class="keyword">new</span> DataSourceProperties();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后又创建两个dataSource的bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DataSource <span class="title">fooDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    DataSourceProperties dataSourceProperties = fooDataSourceProperties();</span><br><span class="line">    log.info(<span class="string">"foo datasource: &#123;&#125;"</span>, dataSourceProperties.getUrl());</span><br><span class="line">    <span class="keyword">return</span> dataSourceProperties.initializeDataSourceBuilder().build();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DataSource <span class="title">barDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    DataSourceProperties dataSourceProperties = barDataSourceProperties();</span><br><span class="line">    log.info(<span class="string">"bar datasource: &#123;&#125;"</span>, dataSourceProperties.getUrl());</span><br><span class="line">    <span class="keyword">return</span> dataSourceProperties.initializeDataSourceBuilder().build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对这个dataSource的bean创建事物管理器<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PlatformTransactionManager <span class="title">fooTxManager</span><span class="params">(DataSource fooDataSource)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(fooDataSource);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PlatformTransactionManager <span class="title">barTxManager</span><span class="params">(DataSource barDataSource)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(barDataSource);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>查看取到的这l两个的dataSource的bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>-<span class="number">04</span>-<span class="number">17</span> <span class="number">23</span>:<span class="number">44</span>:<span class="number">54.039</span>  INFO <span class="number">10508</span> --- [           main] com.example.demo.DemoApplication         : foo datasource: jdbc:h2:mem:foo</span><br><span class="line"><span class="number">2019</span>-<span class="number">04</span>-<span class="number">17</span> <span class="number">23</span>:<span class="number">44</span>:<span class="number">54.087</span>  INFO <span class="number">10508</span> --- [           main] com.example.demo.DemoApplication         : bar datasource: jdbc:h2:mem:bar</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -516,6 +548,16 @@ tpwidget("show");</script>
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/spring/" rel="tag"># spring</a>
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
+          
+        </div>
       
 
       
@@ -535,6 +577,10 @@ tpwidget("show");</script>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/springboot连接池/" rel="prev" title="springboot连接池">
+                springboot连接池 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -589,8 +635,17 @@ tpwidget("show");</script>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -607,7 +662,7 @@ tpwidget("show");</script>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -618,7 +673,7 @@ tpwidget("show");</script>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -629,7 +684,7 @@ tpwidget("show");</script>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -675,6 +730,22 @@ tpwidget("show");</script>
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种方法"><span class="nav-number">1.</span> <span class="nav-text">第一种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种方法"><span class="nav-number">2.</span> <span class="nav-text">第二种方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -702,7 +773,7 @@ tpwidget("show");</script>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.3k</span>
+    <span title="Site words total count">29.6k</span>
   
 </div>
 
