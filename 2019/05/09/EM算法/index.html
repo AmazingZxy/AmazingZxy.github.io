@@ -124,22 +124,22 @@
 
 
 
-<meta name="description" content="安利一个视频    单高斯模型高斯分也被成为正态分布，在概率分布中是一种常见的分布，当年学习高斯分布的时候都是以人的身高作为例子，从随机样本统计的身高的分布总是矮的少，高的也少，最多的是分布在170-185的区间。比如下图高斯分布概率密度公式表达如下：  f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{(x-\mu)^{2}}{2 \sig">
+<meta name="description" content="期望最大化算法(Expectation Maximization)是一种迭代算法，最在概率模型中寻找参数极大似然估计的算法，其中概率模型依赖于无法观测的隐变量，它主要是用于从含有隐变量的数据中能够计算极大似然估计，是解决隐变量优化问题的有效方法。">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EM算法">
 <meta property="og:url" content="http://yoursite.com/2019/05/09/EM算法/index.html">
 <meta property="og:site_name" content="ヾﾉ≧∀≦)o丫冲鸭">
-<meta property="og:description" content="安利一个视频    单高斯模型高斯分也被成为正态分布，在概率分布中是一种常见的分布，当年学习高斯分布的时候都是以人的身高作为例子，从随机样本统计的身高的分布总是矮的少，高的也少，最多的是分布在170-185的区间。比如下图高斯分布概率密度公式表达如下：  f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{(x-\mu)^{2}}{2 \sig">
+<meta property="og:description" content="期望最大化算法(Expectation Maximization)是一种迭代算法，最在概率模型中寻找参数极大似然估计的算法，其中概率模型依赖于无法观测的隐变量，它主要是用于从含有隐变量的数据中能够计算极大似然估计，是解决隐变量优化问题的有效方法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://file.ituring.com.cn/Original/1712e1985119d73dd10f">
 <meta property="og:image" content="http://file.ituring.com.cn/Original/171256171089de6e5263">
 <meta property="og:image" content="http://file.ituring.com.cn/Original/1712d8adf424bcd79446">
 <meta property="og:image" content="https://img-blog.csdn.net/20150529114343505?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE1OTg0Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2019-05-12T16:17:31.476Z">
+<meta property="og:updated_time" content="2019-05-13T16:18:02.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EM算法">
-<meta name="twitter:description" content="安利一个视频    单高斯模型高斯分也被成为正态分布，在概率分布中是一种常见的分布，当年学习高斯分布的时候都是以人的身高作为例子，从随机样本统计的身高的分布总是矮的少，高的也少，最多的是分布在170-185的区间。比如下图高斯分布概率密度公式表达如下：  f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{(x-\mu)^{2}}{2 \sig">
+<meta name="twitter:description" content="期望最大化算法(Expectation Maximization)是一种迭代算法，最在概率模型中寻找参数极大似然估计的算法，其中概率模型依赖于无法观测的隐变量，它主要是用于从含有隐变量的数据中能够计算极大似然估计，是解决隐变量优化问题的有效方法。">
 <meta name="twitter:image" content="http://file.ituring.com.cn/Original/1712e1985119d73dd10f">
 
 
@@ -471,7 +471,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.8k
+                  3.1k
                 </span>
               
 
@@ -487,7 +487,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  11
                 </span>
               
             </div>
@@ -508,8 +508,11 @@ tpwidget("show");</script>
       
 
       
-        <p>安利一个视频</p>
+        <p>期望最大化算法(Expectation Maximization)是一种迭代算法，最在概率模型中寻找参数极大似然估计的算法，其中概率模型依赖于无法观测的隐变量，它主要是用于从含有隐变量的数据中能够计算极大似然估计，是<strong>解决隐变量优化问题的有效方法</strong>。</p>
+<a id="more"></a>
+<p>安利一个视频</p>
 <iframe src="//player.bilibili.com/player.html?aid=31906558&cid=55803608&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 
 <h2 id="单高斯模型"><a href="#单高斯模型" class="headerlink" title="单高斯模型"></a>单高斯模型</h2><p>高斯分也被成为正态分布，在概率分布中是一种常见的分布，当年学习高斯分布的时候都是以人的身高作为例子，从随机样本统计的身高的分布总是矮的少，高的也少，最多的是分布在170-185的区间。比如下图<br><img src="http://file.ituring.com.cn/Original/1712e1985119d73dd10f" alt="高斯分布"><br>高斯分布概率密度公式表达如下：</p>
 <script type="math/tex; mode=display">
@@ -518,18 +521,22 @@ f(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\
 <h2 id="混合高斯分布"><a href="#混合高斯分布" class="headerlink" title="混合高斯分布"></a>混合高斯分布</h2><p> 高斯混合模型是对高斯模型进行简单的扩展，GMM使用多个高斯分布的组合来刻画数据分布。<br> 公式如下:</p>
 <script type="math/tex; mode=display">
 p(x)=\sum_{i=1}^{K} \phi_{i} \frac{1}{\sqrt{2 \sigma_{i}^{2} \pi}} e^{-\frac{\left(x-\mu_{i}\right)^{2}}{2 \sigma_{i}^{2}}}</script><p>在实际中，男女的分布是不同的，女生通常要比男生矮，如下图<br><img src="http://file.ituring.com.cn/Original/1712d8adf424bcd79446" alt=""><br>可以看见是两个高斯分布作用的结果，相比于单高斯分布，采用两个高斯分布来建模是更好的选择。<br>混合高斯分布和单高斯分布的差异？<br>该公式和之前的公式非常相似，但是也有几点不同。<br>1：首先混合高斯分布概率是K个高斯分布的和，每个高斯分布有属于自己的μ和σ参数，<br>2：每个单高斯分布都有与之对应的权重参数，所有高斯分布的权重值必须为正数，并且所有权重的和必须等于1，以确保公式给出数值是合理的概率密度值。换句话说如果我们把该公式对应的输入空间合并起来，结果将等于1。<br>理论上，如果某个混合高斯模型融合的高斯模型个数足够多，它们之间的权重设定得足够合理，这个混合模型可以拟合任意分布的样本。<br>图上这些对男女生的概率值描述的很清晰，是因为知道每个人是男是女，知道他的升高。但是实际上对于每一个人的性别都知道是掌握不了的。 这个时候就需要用到EM来求解了。</p>
-<h2 id="最大似然"><a href="#最大似然" class="headerlink" title="最大似然"></a>最大似然</h2><p>假设现在各得到100个男女身高的数据，是从大街上随机拉取出来的，假设他们是服从高斯分布的，分布的均值u和方差$∂^2$我们不知道,这两个参数就是我们需要估计的。<br>对于每一个男生来说，都是随机挑选的，这些男生之间没有任何关系，那么从整个男生的样本集中抽到某一个男生的概率就是$p(x_i|θ)$,抽取到另外一个男生的概率就是$p(x_j|θ)$，那么同时抽取到他们的概率就是$p(x_i|θ)* p(x_j|θ)$,因为他们都是独立同分布的，那么同时抽取到这100个男生的概率通过联合概率可以得到：</p>
+<h2 id="似然函数和极大似然估计"><a href="#似然函数和极大似然估计" class="headerlink" title="似然函数和极大似然估计"></a>似然函数和极大似然估计</h2><p>假设现在各得到100个男女身高的数据，是从大街上随机拉取出来的，假设他们是服从高斯分布的，分布的均值u和方差$∂^2$我们不知道,这两个参数就是我们需要估计的。<br>对于每一个男生来说，都是随机挑选的，这些男生之间没有任何关系，那么从整个男生的样本集中抽到某一个男生的概率就是$p(x_i|θ)$,抽取到另外一个男生的概率就是$p(x_j|θ)$，那么同时抽取到他们的概率就是$p(x_i|θ)* p(x_j|θ)$,因为他们都是独立同分布的，那么同时抽取到这100个男生的概率通过联合概率可以得到：</p>
 <script type="math/tex; mode=display">
-L(\theta)=L\left(x_{1}, \cdots, x_{n} ; \theta\right)=\prod_{i=1}^{n} p\left(x_{i} ; \theta\right), \theta \in \Theta</script><p>这个概率反映了，在概率密度函数的参数是θ时，得到X这组样本的概率。x是已知的（身高可测），而θ是未知，上面的函数只是一个关于θ的函数，这个函数反应的就是在不同的θ值下面，取的当前这个样本的可能性，因此称为参数θ相对于样本集X的似然函数。<br>那么如何保证这100个人出现的概率最大，就是求得上面的L(θ)的最大值，所以需要找到一个参数θ，使得对应的似然函数L(θ)最大，也就是抽到这100个男生的概率值最大，这个就叫做θ的最大似然估计量，公式为</p>
+L(\theta)=L\left(x_{1}, \cdots, x_{n} ; \theta\right)=\prod_{i=1}^{n} p\left(x_{i} ; \theta\right), \theta \in \Theta</script><p>这个概率反映了，在概率密度函数的参数是θ时，得到X这组样本的概率。x是已知的（身高可测），而θ是未知，上面的函数只是一个关于θ的函数，这个函数反应的就是在不同的θ值下面，取的当前这个样本的可能性，因此称为参数θ相对于样本集X的似然函数。而极大似然估计的目的就是在样本点${x_1,x_2..x_n}$固定的情况下，寻找最优的$\theta$来极大化似然函数。也就是下面这个公式。<br>那么如何保证这100个人出现的概率最大，就是求得上面的L(θ)的最大值，所以需要找到一个参数θ，使得对应的似然函数L(θ)最大，也就是抽到这100个男生的概率值最大，这个就叫做θ的最大似然估计量，公式为</p>
 <script type="math/tex; mode=display">
-\hat{\theta}=\arg \max l(\theta)</script><p>对函数取对数，不改变函数的性质，并且可以将连乘的操作变成连加。</p>
+\hat{\theta}=\arg \max l(\theta)</script><p>要向对$\theta^<em>$,也就是使得$\theta$的似然函数$L(\theta)$极大化，极大值对应的$\theta^</em>$也就是需要的估计值。因为$L(\theta)$和$lnL(\theta)$在同一处$\theta$取的极值，所以对函数取对数，不改变函数的性质，并且可以将连乘的操作变成连加。</p>
 <script type="math/tex; mode=display">
-H(\theta)=\ln L(\theta)=\ln \prod_{i=1}^{n} p\left(x_{i} ; \theta\right)=\sum_{i=1}^{n} \ln p\left(x_{i} ; \theta\right)</script><p>对这个公式求最大，采用求导的方法。<br>所以极大似然估计是一种参数估计的方法， 说的是已知某个随机样本满足某种概率分布，但是其中具体的参数不清楚，参数估计就是通过若干次试验，观察其结果，利用结果推出参数的大概值。最大似然估计是建立在这样的思想上：已知某个参数能使这个样本出现的概率最大，我们当然不会再去选择其他小概率的样本，所以干脆就把这个参数作为估计的真实值。</p>
-<h2 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h2><p>所以现在可以通过极大似然求得100个男生的均值和标准差的参数了，但是若把100个女生加进来，现在只知道身高，不知道性别，就不知道抽取的样本是属于什么性别，也就不知道是从哪一个高斯分布抽取出来的数据。<br>所以现在需要估计的有，这个样本的性别？男生和女生的高斯分布的参数各是多少？<br>正常情况下，知道是从哪一个高斯分布抽取出来的样本，才能根据最大似然估计求得解。现在不知道是从哪一个高斯分布，那么就假设这个样本是属于某一个分布，求得这个分布的均值和标准差，然后通过均值和标准差来检验这个值是不是属于这个高斯分布，这样迭代。<br>所以EM的思想就是： Expectation Maximization<br>假设我们想估计知道A和B两个参数，在开始状态下二者都是未知的，但如果知道了A的信息就可以得到B的信息，反过来知道了B也就得到了A。可以考虑首先赋予A某种初值，以此得到B的估计值，然后从B的当前值出发，重新估计A的取值，这个过程一直持续到收敛为止。<br>所以就是先给男生的均值和标准差赋个初始值，然后猜测这个是男是女（E步，求期望），按照这个方法将200个人都分配到男或女的分布中，就可以通过极大似然估计重新计算两个高斯分布的参数，这是M步（求极大化），如此往复，终止条件就是直到参数基本不再发生变化为止。<br>这个就是EM算法在高斯混合模型中的使用</p>
+H(\theta)=\ln L(\theta)=\ln \prod_{i=1}^{n} p\left(x_{i} ; \theta\right)=\sum_{i=1}^{n} \ln p\left(x_{i} ; \theta\right)</script><p>$L(\theta)$称为样本的似然函数，对$H(\theta)$求最大，采用求导的方法。<br>所以极大似然估计是一种参数估计的方法， 说的是已知某个随机样本满足某种概率分布，但是其中具体的参数不清楚，参数估计就是通过若干次试验，观察其结果，利用结果推出参数的大概值。最大似然估计是建立在这样的思想上：已知某个参数能使这个样本出现的概率最大，我们当然不会再去选择其他小概率的样本，所以干脆就把这个参数作为估计的真实值。</p>
+<h2 id="Jensen不等式"><a href="#Jensen不等式" class="headerlink" title="Jensen不等式"></a>Jensen不等式</h2><p>设f是定义域为实数的函数，对于所有的实数x，都存在$f^{\prime \prime}(x) \geq 0$,那么函数f是一个凸函数，那么jensen不等式的表达如下：</p>
+<script type="math/tex; mode=display">
+E[f(X)] \geq f(E X)</script><p>若f是严格的凸函数，那么，当且仅当$p(X=E[X])=1$，也就是x是一个常量的时候，$E[f(X)] = f(E X)$成立。<br>jensen应用于凹函数时，不等号的方向相反，也就是下公式：</p>
+<script type="math/tex; mode=display">
+E[f(x)] \leq f(E X)</script><h2 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h2><p>所以现在可以通过极大似然求得100个男生的均值和标准差的参数了，但是若把100个女生加进来，现在只知道身高，不知道性别，就不知道抽取的样本是属于什么性别，也就不知道是从哪一个高斯分布抽取出来的数据。<br>所以现在需要估计的有，这个样本的性别？男生和女生的高斯分布的参数各是多少？<br>正常情况下，知道是从哪一个高斯分布抽取出来的样本，才能根据最大似然估计求得解。现在不知道是从哪一个高斯分布，那么就假设这个样本是属于某一个分布，求得这个分布的均值和标准差，然后通过均值和标准差来检验这个值是不是属于这个高斯分布，这样迭代。<br>所以EM的思想就是： Expectation Maximization<br>假设我们想估计知道A和B两个参数，在开始状态下二者都是未知的，但如果知道了A的信息就可以得到B的信息，反过来知道了B也就得到了A。可以考虑首先赋予A某种初值，以此得到B的估计值，然后从B的当前值出发，重新估计A的取值，这个过程一直持续到收敛为止。<br>所以就是先给男生的均值和标准差赋个初始值，然后猜测这个是男是女（E步，求期望），按照这个方法将200个人都分配到男或女的分布中，就可以通过极大似然估计重新计算两个高斯分布的参数，这是M步（求极大化），如此往复，终止条件就是直到参数基本不再发生变化为止。<br>这个就是EM算法在高斯混合模型中的使用</p>
 <h2 id="kmeans和GMM的关系"><a href="#kmeans和GMM的关系" class="headerlink" title="kmeans和GMM的关系"></a>kmeans和GMM的关系</h2><p>在特定条件下，k-means和GMM方法可以互相用对方的思想来表达。在k-means中根据距离每个点最接近的类中心来标记该点的类别，这里存在的假设是每个类簇的尺度接近且特征的分布不存在不均匀性。这也解释了为什么在使用k-means前对数据进行归一会有效果。高斯混合模型则不会受到这个约束，因为它对每个类簇分别考察特征的协方差模型。</p>
 <p>K-means算法可以被视为高斯混合模型（GMM）的一种特殊形式。整体上看，高斯混合模型能提供更强的描述能力，因为聚类时数据点的从属关系不仅与近邻相关，还会依赖于类簇的形状。n维高斯分布的形状由每个类簇的协方差来决定。在协方差矩阵上添加特定的约束条件后，可能会通过GMM和k-means得到相同的结果。</p>
 <p>实践中如果每个类簇的协方差矩阵绑定在一起（就是说它们完全相同），并且矩阵对角线上的协方差数值保持相同，其他数值则全部为0，这样能够生成具有相同尺寸且形状为圆形类簇。在此条件下，每个点都始终属于最近的中间点对应的类。<br>在k-means方法中使用EM来训练高斯混合模型时对初始值的设置非常敏感。而对比k-means，GMM方法有更多的初始条件要设置。实践中不仅初始类中心要指定，而且协方差矩阵和混合权重也要设置，可以运行k-means来生成类中心，并以此作为高斯混合模型的初始条件。由此可见并两个算法有相似的处理过程，主要区别在于模型的复杂度不同。<br>无监督学习的策略：给定一系列数据，训练出一个能描述这些数据规律的模型（并期望潜在过程能生成数据）。训练过程通常要反复迭代，直到无法再优化参数获得更贴合数据的模型为止。</p>
-<h2 id="kmeans和EM的关系"><a href="#kmeans和EM的关系" class="headerlink" title="kmeans和EM的关系"></a>kmeans和EM的关系</h2><p>对于聚类算法kmeans，K是我们事先给定的聚类数，质心代表我们对属于同一个类的样本中心点的猜测，每一个样本和所有质心求一个距离，最近的那个质心就是这个样本的分类，所有样本都有了归属之后，求每一个样本的均值得到新的质心，然后在算每一个样本到质心得距离，重复上面的步骤，直到质心不变或者变化很小。<br><img src="https://img-blog.csdn.net/20150529114343505?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE1OTg0Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>也就是kmeans是为了求得每一个样本的隐含类别，然后用隐含类别将样本归类，这个就是EM的思想。</p>
+<h2 id="EM算法推导"><a href="#EM算法推导" class="headerlink" title="EM算法推导"></a>EM算法推导</h2><h2 id="kmeans和EM的关系"><a href="#kmeans和EM的关系" class="headerlink" title="kmeans和EM的关系"></a>kmeans和EM的关系</h2><p>对于聚类算法kmeans，K是我们事先给定的聚类数，质心代表我们对属于同一个类的样本中心点的猜测，每一个样本和所有质心求一个距离，最近的那个质心就是这个样本的分类，所有样本都有了归属之后，求每一个样本的均值得到新的质心，然后在算每一个样本到质心得距离，重复上面的步骤，直到质心不变或者变化很小。<br><img src="https://img-blog.csdn.net/20150529114343505?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE1OTg0Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>也就是kmeans是为了求得每一个样本的隐含类别，然后用隐含类别将样本归类，这个就是EM的思想。</p>
 
       
     </div>
@@ -731,7 +738,7 @@ H(\theta)=\ln L(\theta)=\ln \prod_{i=1}^{n} p\left(x_{i} ; \theta\right)=\sum_{i
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单高斯模型"><span class="nav-number">1.</span> <span class="nav-text">单高斯模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合高斯分布"><span class="nav-number">2.</span> <span class="nav-text">混合高斯分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大似然"><span class="nav-number">3.</span> <span class="nav-text">最大似然</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM算法"><span class="nav-number">4.</span> <span class="nav-text">EM算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kmeans和GMM的关系"><span class="nav-number">5.</span> <span class="nav-text">kmeans和GMM的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kmeans和EM的关系"><span class="nav-number">6.</span> <span class="nav-text">kmeans和EM的关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单高斯模型"><span class="nav-number">1.</span> <span class="nav-text">单高斯模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合高斯分布"><span class="nav-number">2.</span> <span class="nav-text">混合高斯分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#似然函数和极大似然估计"><span class="nav-number">3.</span> <span class="nav-text">似然函数和极大似然估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jensen不等式"><span class="nav-number">4.</span> <span class="nav-text">Jensen不等式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM算法"><span class="nav-number">5.</span> <span class="nav-text">EM算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kmeans和GMM的关系"><span class="nav-number">6.</span> <span class="nav-text">kmeans和GMM的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EM算法推导"><span class="nav-number">7.</span> <span class="nav-text">EM算法推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kmeans和EM的关系"><span class="nav-number">8.</span> <span class="nav-text">kmeans和EM的关系</span></a></li></ol></div>
             
 
           </div>
@@ -765,7 +772,7 @@ H(\theta)=\ln L(\theta)=\ln \prod_{i=1}^{n} p\left(x_{i} ; \theta\right)=\sum_{i
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.6k</span>
+    <span title="Site words total count">30k</span>
   
 </div>
 
