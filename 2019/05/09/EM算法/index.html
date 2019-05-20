@@ -136,7 +136,7 @@
 <meta property="og:image" content="http://file.ituring.com.cn/Original/171256171089de6e5263">
 <meta property="og:image" content="http://file.ituring.com.cn/Original/1712d8adf424bcd79446">
 <meta property="og:image" content="https://img-blog.csdn.net/20150529114343505?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE1OTg0Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2019-05-13T16:18:02.143Z">
+<meta property="og:updated_time" content="2019-05-14T16:05:53.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EM算法">
 <meta name="twitter:description" content="期望最大化算法(Expectation Maximization)是一种迭代算法，最在概率模型中寻找参数极大似然估计的算法，其中概率模型依赖于无法观测的隐变量，它主要是用于从含有隐变量的数据中能够计算极大似然估计，是解决隐变量优化问题的有效方法。">
@@ -471,7 +471,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k
+                  3.8k
                 </span>
               
 
@@ -487,7 +487,7 @@ tpwidget("show");</script>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  14
                 </span>
               
             </div>
@@ -536,7 +536,31 @@ E[f(x)] \leq f(E X)</script><h2 id="EM算法"><a href="#EM算法" class="headerl
 <h2 id="kmeans和GMM的关系"><a href="#kmeans和GMM的关系" class="headerlink" title="kmeans和GMM的关系"></a>kmeans和GMM的关系</h2><p>在特定条件下，k-means和GMM方法可以互相用对方的思想来表达。在k-means中根据距离每个点最接近的类中心来标记该点的类别，这里存在的假设是每个类簇的尺度接近且特征的分布不存在不均匀性。这也解释了为什么在使用k-means前对数据进行归一会有效果。高斯混合模型则不会受到这个约束，因为它对每个类簇分别考察特征的协方差模型。</p>
 <p>K-means算法可以被视为高斯混合模型（GMM）的一种特殊形式。整体上看，高斯混合模型能提供更强的描述能力，因为聚类时数据点的从属关系不仅与近邻相关，还会依赖于类簇的形状。n维高斯分布的形状由每个类簇的协方差来决定。在协方差矩阵上添加特定的约束条件后，可能会通过GMM和k-means得到相同的结果。</p>
 <p>实践中如果每个类簇的协方差矩阵绑定在一起（就是说它们完全相同），并且矩阵对角线上的协方差数值保持相同，其他数值则全部为0，这样能够生成具有相同尺寸且形状为圆形类簇。在此条件下，每个点都始终属于最近的中间点对应的类。<br>在k-means方法中使用EM来训练高斯混合模型时对初始值的设置非常敏感。而对比k-means，GMM方法有更多的初始条件要设置。实践中不仅初始类中心要指定，而且协方差矩阵和混合权重也要设置，可以运行k-means来生成类中心，并以此作为高斯混合模型的初始条件。由此可见并两个算法有相似的处理过程，主要区别在于模型的复杂度不同。<br>无监督学习的策略：给定一系列数据，训练出一个能描述这些数据规律的模型（并期望潜在过程能生成数据）。训练过程通常要反复迭代，直到无法再优化参数获得更贴合数据的模型为止。</p>
-<h2 id="EM算法推导"><a href="#EM算法推导" class="headerlink" title="EM算法推导"></a>EM算法推导</h2><h2 id="kmeans和EM的关系"><a href="#kmeans和EM的关系" class="headerlink" title="kmeans和EM的关系"></a>kmeans和EM的关系</h2><p>对于聚类算法kmeans，K是我们事先给定的聚类数，质心代表我们对属于同一个类的样本中心点的猜测，每一个样本和所有质心求一个距离，最近的那个质心就是这个样本的分类，所有样本都有了归属之后，求每一个样本的均值得到新的质心，然后在算每一个样本到质心得距离，重复上面的步骤，直到质心不变或者变化很小。<br><img src="https://img-blog.csdn.net/20150529114343505?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE1OTg0Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>也就是kmeans是为了求得每一个样本的隐含类别，然后用隐含类别将样本归类，这个就是EM的思想。</p>
+<h2 id="EM算法推导"><a href="#EM算法推导" class="headerlink" title="EM算法推导"></a>EM算法推导</h2><p>观察数据：观测到的随机变量X的样本</p>
+<script type="math/tex; mode=display">
+X=\left(x_{1}, \ldots, x_{n}\right)</script><p>隐变量数据：无法观察到的数据</p>
+<script type="math/tex; mode=display">
+Z=\left(z_{1}, \ldots, z_{n}\right)</script><p>那么完整的数据就包括观察数据和隐含数据$Y=(X, Z)$，也就是</p>
+<script type="math/tex; mode=display">
+Y=\left(\left(x_{1}, z_{1}\right), \ldots\left(x_{n}, z_{n}\right)\right)</script><p>EM的思想就是从含有隐变量的数据出发，利用极大似然估计求解未知参数，观察变量是可知的，隐变量未知，所以从观测变量入手，运用极大似然估计解决此类问题。<br>极大似然函数可知</p>
+<script type="math/tex; mode=display">
+\begin{aligned} L(\theta) &=\ln \prod_{i=1}^{n} p\left(x_{i} ; \theta\right) \\ &=\sum_{i=1}^{n} \ln p\left(x^{(i)} ; \theta\right) \end{aligned}</script><p>将隐变量带入</p>
+<script type="math/tex; mode=display">
+L(\theta)=\sum_{i} \ln p\left(x^{(i)} ; \theta\right) =\sum_{i} \ln \sum_{z^{i}} p\left(x^{(i)}, z^{(i)} ; \theta\right) 
+
+=\sum_{i} \ln \sum_{z^{(i)}} Q_{i}\left(z^{(i)}\right) \frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}</script><p>在这里，$Q_i$是表示含隐变量Z的某种分布，$Q_i$满足的条件是</p>
+<script type="math/tex; mode=display">
+\sum_{Z} Q_{i}\left(z^{(i)}\right)=1 \quad Q_{i}(z) \geq 0</script><p>同时替换</p>
+<script type="math/tex; mode=display">
+\begin{array}{c}{p\left(z^{(i)}\right)=Q_{i}\left(z^{(i)}\right)} \\ {f\left(z^{(i)}\right)=\frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}}\end{array}</script><p>由数学期望的定律可知$E[f(X)]=\sum<em>{i} f\left(x</em>{i}\right) p\left(x<em>{i}\right)$<br>$\sum</em>{z^{\prime \prime}} Q<em>{i}\left(z^{(i)}\right) \frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q</em>{i}\left(z^{(i)}\right)}$是$p\left(x^{(i)}, z^{(i)} ; \theta\right) / Q_{i}\left(z^{(i)}\right)$的数学期望</p>
+<script type="math/tex; mode=display">
+\sum_{i} \ln \left(E\left[\frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}\right]\right)</script><p>对于函数$f(x)=\ln x$，由jensen不等式可知$f(E[X] \geq E[f(x)]$<br>所以有$\ln (E[X]) \geq E[\ln X]$<br>所以</p>
+<script type="math/tex; mode=display">
+\sum_{i} \ln \left(E\left[\frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}\right]\right) \geq \sum_{i} E\left[\ln \frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}\right]</script><p>再由数学期望相关定理$E[f(x)]=\sum<em>{i} f\left(x</em>{i}\right) p\left(x_{i}\right)$，可得</p>
+<script type="math/tex; mode=display">
+\sum_{i} E\left[\ln \frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}\right] =\sum_{i} \sum_{z^{\prime \prime}} Q_{i}\left(z^{(i)}\right) \ln \frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}</script><p>所以可以得到</p>
+<script type="math/tex; mode=display">
+L(\theta) \geq \sum_{i} \sum_{z^{(i)}} Q_{i}\left(z^{(i)}\right) \ln \frac{p\left(x^{(i)}, z^{(i)} ; \theta\right)}{Q_{i}\left(z^{(i)}\right)}</script><h2 id="kmeans和EM的关系"><a href="#kmeans和EM的关系" class="headerlink" title="kmeans和EM的关系"></a>kmeans和EM的关系</h2><p>对于聚类算法kmeans，K是我们事先给定的聚类数，质心代表我们对属于同一个类的样本中心点的猜测，每一个样本和所有质心求一个距离，最近的那个质心就是这个样本的分类，所有样本都有了归属之后，求每一个样本的均值得到新的质心，然后在算每一个样本到质心得距离，重复上面的步骤，直到质心不变或者变化很小。<br><img src="https://img-blog.csdn.net/20150529114343505?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDE1OTg0Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>也就是kmeans是为了求得每一个样本的隐含类别，然后用隐含类别将样本归类，这个就是EM的思想。</p>
 
       
     </div>
@@ -772,7 +796,7 @@ E[f(x)] \leq f(E X)</script><h2 id="EM算法"><a href="#EM算法" class="headerl
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30k</span>
+    <span title="Site words total count">32.1k</span>
   
 </div>
 
