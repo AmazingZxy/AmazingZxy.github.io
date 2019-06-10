@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[crf]]></title>
+    <url>%2F2019%2F05%2F21%2Fcrf%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[kmeans算法]]></title>
     <url>%2F2019%2F05%2F12%2Fkmeans%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[聚类算法是一种无监督学习的算法，它将相似的对象归到同一个簇内，簇内的对象越相似，那么聚类的效果越好，看，kmeans算法是一个聚类的算法，之所以叫kmeans，是因为它可以发现k个不同的簇，且每一个簇的中心采用簇中所含值得均值计算而成。 kmeans的思想kmeans是发现给定数据集的k个簇的算法，簇的个数是用户给定的，每一个簇通过其质心来描述，质心也就是每一个簇的所有点的中心。 kmeans的优缺点优点：容易实现缺点：可能收敛到局部最小值，在大规模数据集收敛很慢 kmeans算法的流程随机初始k个初始点作为质心，然后将数据集中的每一个点分配到一个簇内，也就是将数据集中的每一个点找到最近的质心，并且分配给该质心所对应的簇，当所有点都分配到簇之后，更新每个簇的质心为该簇所有点的平均值。 算法的伪代码随机创建k个点初始化作为开始的质心 将每个点分派到距离他本身最近的质心所在的簇，从而形成k个簇 重新计算每一个新簇的质心簇不发生改变或达到最大迭代次数就结束 关于kmeans的几个问题如何确定k的值？第一种：手肘法https://blog.csdn.net/qq_15738501/article/details/79036255第二种：轮廓系数法 如何选质心？两种情况第一种，刚开始是随机选取的质心，但是也要保证任意两个质心不能相隔太近，一个比较好的初始化质心，对整个算法的计算量和速度都是由很大的帮助。第二种：之后选取质心的步骤。在所有的数据都划分到每一个簇后，对每一个簇内的所有数据求平均，得到的就是新的质心。 如何计算距离？我们知道计算距离的方法有很多，曼哈顿，欧式，余弦，切比雪夫距离等，曼哈顿距离只计算水平或垂直距离，有维度的限制。另一方面，欧氏距离可用于任何空间的距离计算问题，这儿数据点存在于任意空间，欧氏距离是更好的选选择。 如何确定分类结束？簇不发生改变：迭代的数据集的分配结果不再发送改变达到最大迭代次数：认为设定，达到最大次数就停止迭代，分类结束，也就是说只要任意一个点的簇分配的结果发生改变，那么分类就没有结束。 如何去做改进？由于k值是用户给定给的，那么用户如何知道k值选取是否合理，如何检验生成的簇是否足够好？这都是一些问题。 为了解决这些问题，采用一种常用于度量聚类效果的指标：SSE(误差平方和)，为什么是SSE呢？SSE越小代表数据点越接近质点，聚类的效果也就越好，由于对误差取了平方，所以更加注重原理质心得点，由于SSE越小，聚类的效果越好，通过增加k值是可以达到减小SSE的目的，但是这样就违背了聚类的目标，聚类的目标就是：保持簇数据不变的情况下提高簇的质量。所以通常用的另外一种方法是：将SSE最大的簇分为两个簇，然后为了保证簇总数不变，合并某两个簇。具体做法：将SSE最大的簇的点选出来，在kmean算法上运行，迭代，得到两个簇，为了保证总簇数不变，就需要合并两个簇为一个簇，有两种方法可以作为簇合并的参考。合并最近的质心或者SSE最小的两个的簇第一种：合并最近的质心这种需要计算任意两个质心得距离，然后合并距离最近的两个点来实现第二章：合并SSE最小的簇需要计算每一个的簇的SSE值，同时还需要计算两个簇合并后的新簇的SSE值，必须在所有可能的簇上都要重复上面的操作，直到合并最佳的两个簇为止。 二分kmeans算法为了克服kmeans收敛于局部最小值的问题，有了一种二分kmeans的算法。 二分kmeans算法原理首先将所有点作为一个簇，然后将簇一分为二，之后选择其中一个继续划分。选择哪一个簇有两种做法（第一种：取决于是否可以最大程度降低SSE的值的簇，第二种：选取SSE最大簇再做划分），不断重复迭代，知道达到用户指定的簇数为止。 伪代码将所有点看成一个簇当簇数目小于k 对每一个簇 计算SSE 在给定的簇上面进行kmeans划分（k=2) 计算一分为二之后的总误差 选择误使得差最小的那个簇进行划分操作]]></content>
@@ -103,9 +108,9 @@
         <category>java</category>
       </categories>
       <tags>
+        <tag>java</tag>
         <tag>spring</tag>
         <tag>spring-boot</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -116,9 +121,9 @@
         <category>java</category>
       </categories>
       <tags>
+        <tag>java</tag>
         <tag>spring</tag>
         <tag>spring-boot</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -126,9 +131,9 @@
     <url>%2F2019%2F04%2F14%2Fspring%E5%8D%95%E6%95%B0%E6%8D%AE%E6%BA%90%E4%BD%BF%E7%94%A8jdbc%2F</url>
     <content type="text"><![CDATA[在实际的生产应用中，会涉及到操作数据库，在这使用内嵌的h2数据库，简单方便操作。 导入依赖首先需要导入项目需要的依赖，目前需要的依赖有：actuator,H2,JDBC,Lombok,web1、actuator:actuator是监控系统健康情况的工具。2、H2 数据库3、jdbc:对数据库的数据需要使用到jdbc操作4、Lombok:简单理解就是Lombok想要解决了的是在我们实体Bean中大量的Getter/Setter方法5、web:以web的方式启动，常用。123456789101112131415161718192021222324252627282930dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.h2database&lt;/groupId&gt; &lt;artifactId&gt;h2&lt;/artifactId&gt; &lt;scope&gt;runtime&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;optional&gt;true&lt;/optional&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt; &lt;scope&gt;test&lt;/scope&gt; &lt;/dependency&gt;&lt;/dependencies&gt; 简单步骤1、引入数据库驱动-H22、引入jdbc依赖 spring-boot-starter-jdbc3、获取dataSource Bean,打印信息。4、通过/actuator/beans查看bean 获取数据源信息第一步：首先application.properites填写服务需要的配置信息。spring-boot默认使用了hikariCP12345678910111213141516# 端口port= 8081# ..还不了解management.endpoints.web.exposure.include=*spring.output.ansi.enabled=ALWAYS# 数据库信息spring.datasource.url=jdbc:h2:mem:testdbspring.datasource.username=zxyspring.datasource.password=spring.datasource.hikari.maximumPoolSize=5spring.datasource.hikari.minimumIdle=5spring.datasource.hikari.idleTimeout=600000spring.datasource.hikari.connectionTimeout=30000spring.datasource.hikari.maxLifetime=1800000 第二步：在配置创建sql初始化数据库,schema.sql和data.sql确定初始化SQL文件。12spring.dataSource.schemaspring.dataSource.data 创建一个schema.sql文件，里面填写的是创建sql的语句1CREATE TABLE Test (ID INT IDENTITY, BAR VARCHAR(64)); 有了表，然后插入两条数据，创建一个data.sql，里面的内容有12INSERT INTO Test (ID, BAR) VALUES (1, 'aaa');INSERT INTO Test (ID, BAR) VALUES (2, 'bbb'); 第三步：获取数据源信息为了方便程序启动的时候查看获取的配置信息，程序继承 CommandLineRunner并实现run方法，将自己需要显示的内容写进去，就可以在程序启动的时候查看到数据加载的信息了。1234@Override public void run(String... args) throws Exception &#123; &#125; 实现建立连接方法并且获取一个连接123456789101112131415161718192021222324252627282930313233@SpringBootApplication@Slf4jpublic class DemoApplication implements CommandLineRunner &#123; private final static Logger log = LoggerFactory.getLogger(DemoApplication.class); @Autowired private DataSource dataSource; @Autowired private JdbcTemplate jdbcTemplate; @Override public void run(String... args) throws Exception &#123; showConnection(); showData(); &#125; //查看连接信息 private void showConnection() throws SQLException &#123; log.info(dataSource.toString()); Connection conn = dataSource.getConnection(); log.info(conn.toString()); conn.close(); &#125; // 获取一个连接 private void showData() &#123; jdbcTemplate.queryForList("SELECT * FROM FOO") .forEach(row -&gt; log.info(row.toString())); &#125; public static void main(String[] args) &#123; SpringApplication.run(DemoApplication.class, args); &#125;&#125; 查看运行结果123452019-04-16 23:53:00.714 INFO 14116 --- [ main] com.example.demo.DemoApplication :HikariProxyConnection@656844049 wrapping conn0: url=jdbc:h2:mem:testdb user=ZXY2019-04-16 23:53:00.716 DEBUG 14116 --- [ main] o.s.jdbc.core.JdbcTemplate :Executing SQL query [SELECT * FROM FOO]2019-04-16 23:53:00.779 INFO 14116 --- [ main] com.example.demo.DemoApplication : &#123;ID=1, BAR=aaa&#125;2019-04-16 23:53:00.781 INFO 14116 --- [ main] com.example.demo.DemoApplication : &#123;ID=2, BAR=bbb&#125; 可以通过http://127.0.0.1:8080/actuator/beans查看spring里面的bean]]></content>
       <tags>
+        <tag>java</tag>
         <tag>spring</tag>
         <tag>spring-boot</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -139,9 +144,9 @@
         <category>java</category>
       </categories>
       <tags>
+        <tag>java</tag>
         <tag>spring</tag>
         <tag>spring-boot</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
